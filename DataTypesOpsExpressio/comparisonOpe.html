@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparison Operators</title>
+</head>
+<body>
+
+<p>Is first number greater than second? <span id="greater"></span></p>
+<p>Is first number less than second? <span id="less"></span></p>
+<p>Are the two numbers equal? <span id="equal"></span></p>
+
+<script>
+    n1 = prompt('Enter the first number:')
+    n2 = prompt('Enter the second number:')
+
+    document.getElementById('greater').textContent = Number(n1) > Number(n2)
+    document.getElementById('less').textContent = Number(n1) < Number(n2)
+    document.getElementById('equal').textContent = Number(n1) == Number(n2)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operator Precedence</title>
+</head>
+<body>
+
+<p>10 + 3 * 5 = <span id="exp1"></span></p>
+<p>(10 + 3) * 5 = <span id="exp2"></span></p>
+<p>20 / 2 + 3 = <span id="exp3"></span></p>
+<p>20 / (2 + 3) = <span id="exp4"></span></p>
+
+<script>
+
+let exp1 = 10 + 3 * 5
+let exp2 = (10 + 3) * 5
+let exp3 = 20 / 2 + 3
+let exp4 = 20 / (2 + 3)
+
+document.getElementById("exp1").textContent = exp1
+document.getElementById("exp2").textContent = exp2
+document.getElementById("exp3").textContent = exp3
+document.getElementById("exp4").textContent = exp4
+
+console.log("10 + 3 * 5 =", exp1)
+console.log("(10 + 3) * 5 =", exp2)
+console.log("20 / 2 + 3 =", exp3)
+console.log("20 / (2 + 3) =", exp4)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voting Eligibility</title>
+</head>
+<body>
+
+<p>Age: <span id="age"></span></p>
+<p>Citizen: <span id="citizen"></span></p>
+<p>Eligible to vote: <span id="eligible"></span></p>
+
+<script>
+
+let age = prompt("Enter age:")
+let citizen = prompt("Are you a citizen (true/false)?")
+
+age = Number(age)
+citizen = (citizen === "true")
+
+// NOT operator example
+let notCitizen = !citizen
+
+// AND + NOT
+let eligible = age >= 18 && !notCitizen
+
+document.getElementById("age").textContent = age
+document.getElementById("citizen").textContent = citizen
+document.getElementById("eligible").textContent = eligible
+
+console.log("Age:", age)
+console.log("Citizen:", citizen)
+console.log("Eligible to vote:", eligible)
+
+</script>
+
+</body>
+</html>

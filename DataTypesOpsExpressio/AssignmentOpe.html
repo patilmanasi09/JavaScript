@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment Operators</title>
+</head>
+<body>
+
+<p>Initial value of x: <span id="step0"></span></p>
+<p>After adding 5: <span id="step1"></span></p>
+<p>After multiplying by 3: <span id="step2"></span></p>
+<p>After subtracting 10: <span id="step3"></span></p>
+<p>After dividing by 2: <span id="step4"></span></p>
+<p>After modulus with 3: <span id="step5"></span></p>
+
+<script>
+
+let x = 10
+document.getElementById("step0").textContent = x
+console.log("Initial x:", x)
+
+x += 5
+document.getElementById("step1").textContent = x
+console.log("After adding 5:", x)
+
+x *= 3
+document.getElementById("step2").textContent = x
+console.log("After multiplying by 3:", x)
+
+x -= 10
+document.getElementById("step3").textContent = x
+console.log("After subtracting 10:", x)
+
+x /= 2
+document.getElementById("step4").textContent = x
+console.log("After dividing by 2:", x)
+
+x %= 3
+document.getElementById("step5").textContent = x
+console.log("After modulus with 3:", x)
+
+</script>
+
+</body>
+</html>

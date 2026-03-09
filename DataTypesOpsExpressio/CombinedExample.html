@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combined Example</title>
+</head>
+<body>
+
+<p>Perimeter: <span id="perimeter"></span></p>
+<p>Area: <span id="area"></span></p>
+<p>Is perimeter greater than area? <span id="compare"></span></p>
+
+<script>
+
+let length = prompt("Enter length:")
+let width = prompt("Enter width:")
+
+length = Number(length)
+width = Number(width)
+
+let perimeter = 2 * (length + width)
+let area = length * width
+
+document.getElementById("perimeter").textContent = perimeter
+document.getElementById("area").textContent = area
+document.getElementById("compare").textContent = perimeter > area
+
+console.log("Perimeter:", perimeter)
+console.log("Area:", area)
+console.log("Is perimeter greater than area?", perimeter > area)
+
+</script>
+
+</body>
+</html>

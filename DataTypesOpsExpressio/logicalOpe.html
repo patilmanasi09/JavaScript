@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logical Operators</title>
+</head>
+<body>
+
+<p>Scholarship Eligibility: <span id="result"></span></p>
+
+<script>
+    math = prompt('Enter Math score:')
+    science = prompt('Enter Science score:')
+
+    eligibility = Number(math) >= 90 && Number(science) >= 85
+
+    document.getElementById('result').textContent = eligibility
+
+    console.log("Scholarship Eligibility:", eligibility)
+</script>
+
+</body>
+</html>
