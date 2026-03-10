@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+
+        input,
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .success {
+            color: #2e7d32;
+        }
+
+        .error {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Palindrome Checker</h3>
+        <label for="strInput">Enter a string:</label><br>
+        <input type="text" id="strInput" placeholder="e.g., madam">
+        <button onclick="checkPalindrome()">Check</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            let inputString = document.getElementById("strInput").value;
+            let resultDisplay = document.getElementById("result");
+
+            if (inputString.trim() === "") {
+                resultDisplay.innerText = "Please enter a word.";
+                resultDisplay.className = "error";
+                return;
+            }
+            let cleanString = inputString.toLowerCase();
+
+            let reversedString = cleanString.split('').reverse().join('');
+
+            if (cleanString === reversedString) {
+                resultDisplay.innerText = inputString + " is a palindrome.";
+                resultDisplay.className = "success";
+            } else {
+                resultDisplay.innerText = inputString + " is not a palindrome.";
+                resultDisplay.className = "error";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

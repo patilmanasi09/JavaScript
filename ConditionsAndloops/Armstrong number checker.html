@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Number Checker</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+
+        input,
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        #result {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .success {
+            color: #2e7d32;
+        }
+
+        .error {
+            color: #d32f2f;
+        }
+
+        .math-breakdown {
+            font-family: monospace;
+            color: #555;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Armstrong Number Checker</h3>
+        <label for="numInput">Enter a number:</label><br>
+        <input type="number" id="numInput" placeholder="e.g., 153" min="0">
+        <button onclick="checkArmstrong()">Check Number</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkArmstrong() {
+            
+            let inputElement = document.getElementById("numInput");
+            let number = parseInt(inputElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(number) || number < 0) {
+                resultDisplay.innerHTML = "<span class='error'>Please enter a valid positive number.</span>";
+                return;
+            }
+
+            let numString = number.toString();
+            let numberOfDigits = numString.length;
+
+            let sum = 0;
+            let breakdownText = []; 
+
+            for (let i = 0; i < numberOfDigits; i++) {
+
+                let digit = parseInt(numString[i]);
+
+                let poweredDigit = Math.pow(digit, numberOfDigits);
+
+                sum += poweredDigit;
+
+                breakdownText.push(digit + "^" + numberOfDigits);
+            }
+
+            if (sum === number) {
+                resultDisplay.innerHTML =
+                    "<span class='success'>" + number + " is an Armstrong number.</span>" +
+                    "<div class='math-breakdown'>" + breakdownText.join(" + ") + " = " + sum + "</div>";
+            } else {
+                resultDisplay.innerHTML =
+                    "<span class='error'>" + number + " is not an Armstrong number.</span>" +
+                    "<div class='math-breakdown'>" + breakdownText.join(" + ") + " = " + sum + " (Not " + number + ")</div>";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average of N Numbers</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .error { 
+            color: #d32f2f; 
+            font-weight: bold;
+         }
+        .success-data {
+             color: #2e7d32; 
+             font-weight: bold;
+             }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Average of N Numbers</h3>
+        <label for="nCount">How many numbers? (N):</label><br>
+        <input type="number" id="nCount" placeholder="e.g., 4" min="1">
+        <button onclick="calculateAverage()">Start Entering Numbers</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateAverage() {
+            let nElement = document.getElementById("nCount");
+            let n = parseInt(nElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(n) || n <= 0) {
+                resultDisplay.innerHTML = "<span class='error'>Please enter a valid positive number for N.</span>";
+                return;
+            }
+
+            let sum = 0;
+            let enteredNumbers = [];
+
+            for (let i = 0; i < n; i++) {
+                
+                let userInput = prompt("Enter number " + (i + 1) + " of " + n + ":");
+                let currentNumber = parseFloat(userInput);
+
+                if (isNaN(currentNumber)) {
+                    resultDisplay.innerHTML = "<span class='error'>Invalid number entered in the prompt. Process aborted.</span>";
+                    return; 
+                }
+
+                sum += currentNumber;
+                enteredNumbers.push(currentNumber);
+            }
+
+            let average = sum / n;
+
+            resultDisplay.innerHTML = 
+                "Entered numbers: <span class='success-data'>" + enteredNumbers.join(", ") + "</span><br>" +
+                "Sum: <span class='success-data'>" + sum + "</span><br>" +
+                "Average: <span class='success-data'>" + average + "</span>";
+        }
+    </script>
+
+</body>
+</html>

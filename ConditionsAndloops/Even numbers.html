@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Even Numbers</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        #result {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-top: 15px;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Even Numbers (1 to 20)</h3>
+        <button onclick="printEvenNumbers()">Print Numbers</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function printEvenNumbers() {
+            
+            let evenNumbers = [];
+
+            for (let i = 1; i <= 20; i++) {
+               
+                if (i % 2 === 0) {
+                    evenNumbers.push(i);
+                }
+            }
+            let resultDisplay = document.getElementById("result");
+            resultDisplay.innerText = evenNumbers.join(", ");
+        }
+    </script>
+
+</body>
+</html>

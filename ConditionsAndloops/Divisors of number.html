@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Divisors</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        #result {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+            color: #2e7d32; 
+            line-height: 1.5;
+        }
+        .error { 
+            color: #d32f2f; 
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Find Divisors</h3>
+        <label for="numInput">Enter a number:</label><br>
+        <input type="number" id="numInput" placeholder="e.g., 12" min="1">
+        <button onclick="findDivisors()">Find Divisors</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function findDivisors() {
+           
+            let inputElement = document.getElementById("numInput");
+            let number = parseInt(inputElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(number) || number <= 0) {
+                resultDisplay.innerHTML = "<span class='error'>Please enter a valid positive number.</span>";
+                return;
+            }
+
+            let divisors = [];
+
+            for (let i = 1; i <= number; i++) {
+               
+                if (number % i === 0) {
+                    divisors.push(i);
+                }
+            }
+
+            resultDisplay.innerText = "Divisors of " + number + ": " + divisors.join(", ");
+        }
+    </script>
+
+</body>
+</html>

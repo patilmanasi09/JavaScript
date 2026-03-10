@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Pattern</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+      
+        #patternDisplay {
+            font-family: monospace;
+            font-size: 20px;
+            color: #2e7d32; 
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Star Pattern</h3>
+        <button onclick="generatePattern()">Generate Stars</button>
+        <div id="patternDisplay"></div>
+    </div>
+
+    <script>
+        function generatePattern() {
+            let patternString = "";
+            let displayElement = document.getElementById("patternDisplay");
+
+            for (let i = 1; i <= 5; i++) {
+                
+                for (let j = 1; j <= i; j++) {
+                    patternString += "*"; 
+                }
+                
+                patternString += "<br>";
+            }
+
+            displayElement.innerHTML = patternString;
+        }
+    </script>
+
+</body>
+</html>

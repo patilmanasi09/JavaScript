@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel and Consonant Counter</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #2e7d32;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Count Vowels & Consonants</h3>
+        <label for="strInput">Enter a string:</label><br>
+        <input type="text" id="strInput" placeholder="e.g., Hello World">
+        <button onclick="countLetters()">Count</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function countLetters() {
+            
+            let inputString = document.getElementById("strInput").value.toLowerCase();
+            let resultDisplay = document.getElementById("result");
+
+            let vowelsCount = 0;
+            let consonantsCount = 0;
+
+            const vowels = "aeiou";
+
+            for (let i = 0; i < inputString.length; i++) {
+                let char = inputString[i];
+
+                if (char >= 'a' && char <= 'z') {
+                    
+                    if (vowels.includes(char)) {
+                        vowelsCount++;
+                    } else {
+                        consonantsCount++;
+                    }
+                }
+            }
+            resultDisplay.innerHTML = "Vowels: " + vowelsCount + "<br>Consonants: " + consonantsCount;
+        }
+    </script>
+
+</body>
+</html>

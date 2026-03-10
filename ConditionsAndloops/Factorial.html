@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+
+        input,
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .success {
+            color: #2e7d32;
+        }
+
+        .error {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Factorial Calculator</h3>
+        <label for="numInput">Enter a number:</label><br>
+        <input type="number" id="numInput" placeholder="e.g., 5" min="0">
+        <button onclick="calculateFactorial()">Calculate</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateFactorial() {
+           
+            let inputElement = document.getElementById("numInput");
+            let number = parseInt(inputElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(number) || number < 0) {
+                resultDisplay.innerText = "Please enter a valid positive number.";
+                resultDisplay.className = "error";
+                return;
+            }
+
+            let factorial = 1;
+            let i = number;
+
+            while (i > 0) {
+                factorial *= i;
+                i--;
+            }
+
+            resultDisplay.innerText = "Factorial of " + number + ": " + factorial;
+            resultDisplay.className = "success";
+        }
+    </script>
+
+</body>
+
+</html>

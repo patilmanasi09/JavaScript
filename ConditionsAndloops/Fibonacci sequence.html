@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        #result {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+            color: #2e7d32; 
+            line-height: 1.5;
+            word-wrap: break-word; 
+        }
+        .error { 
+            color: #d32f2f; 
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Fibonacci Sequence</h3>
+        <label for="termInput">How many terms? (N):</label><br>
+        <input type="number" id="termInput" placeholder="e.g., 6" min="1">
+        <button onclick="generateFibonacci()">Generate</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function generateFibonacci() {
+            let inputElement = document.getElementById("termInput");
+            let n = parseInt(inputElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(n) || n <= 0) {
+                resultDisplay.innerHTML = "<span class='error'>Please enter a valid positive number greater than 0.</span>";
+                return;
+            }
+
+            if (n === 1) {
+                resultDisplay.innerText = "Fibonacci sequence: 0";
+                return;
+            }
+
+            let fibSequence = [0, 1];
+
+            for (let i = 2; i < n; i++) {
+                let nextTerm = fibSequence[i - 1] + fibSequence[i - 2];
+                fibSequence.push(nextTerm);
+            }
+            resultDisplay.innerText = "Fibonacci sequence: " + fibSequence.join(", ");
+        }
+    </script>
+
+</body>
+</html>

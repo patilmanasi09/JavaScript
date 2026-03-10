@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Pyramid</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+       
+        #patternDisplay {
+            font-family: monospace; 
+            font-size: 18px;
+            color: #2e7d32;
+            line-height: 1.5;
+            white-space: pre; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Number Pyramid</h3>
+        <button onclick="generatePyramid()">Generate Pyramid</button>
+        <div id="patternDisplay"></div>
+    </div>
+
+    <script>
+        function generatePyramid() {
+            let patternString = "";
+            let totalRows = 5;
+
+            for (let i = 1; i <= totalRows; i++) {
+                
+                for (let space = 1; space <= totalRows - i; space++) {
+                    patternString += " "; 
+                }
+                for (let j = 1; j <= i; j++) {
+                    patternString += j;
+                }
+                for (let k = i - 1; k >= 1; k--) {
+                    patternString += k;
+                }
+
+                patternString += "\n"; 
+            }
+            document.getElementById("patternDisplay").innerText = patternString;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Odd and Even Numbers</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .result-line {
+            font-weight: bold;
+            font-size: 16px;
+            margin: 5px 0;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Sum of Odd & Even (1 to 100)</h3>
+        <button onclick="calculateSums()">Calculate Sums</button>
+        <div id="resultDisplay"></div>
+    </div>
+
+    <script>
+        function calculateSums() {
+           
+            let sumEven = 0;
+            let sumOdd = 0;
+
+            for (let i = 1; i <= 100; i++) {
+                
+                if (i % 2 === 0) {
+                   
+                    sumEven += i;
+                } else {
+                  
+                    sumOdd += i;
+                }
+            }
+
+            let displayElement = document.getElementById("resultDisplay");
+            displayElement.innerHTML = 
+                "<div class='result-line'>Sum of even numbers: " + sumEven + "</div>" +
+                "<div class='result-line'>Sum of odd numbers: " + sumOdd + "</div>";
+        }
+    </script>
+
+</body>
+</html>

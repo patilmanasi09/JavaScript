@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Digits</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+        }
+        #result {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Sum of Digits</h3>
+        <label for="numInput">Enter a number:</label><br>
+        <input type="number" id="numInput">
+        <button onclick="calculateSum()">Calculate</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateSum() {
+           
+            let inputElement = document.getElementById("numInput");
+            let number = parseInt(inputElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(number)) {
+                resultDisplay.innerText = "Please enter a valid number.";
+                return;
+            }
+            number = Math.abs(number);
+            
+            let sum = 0;
+
+            do {
+               
+                let lastDigit = number % 10;
+                
+                sum += lastDigit;
+                
+                number = Math.floor(number / 10);
+                
+            } while (number > 0); 
+
+            resultDisplay.innerText = "Sum of digits: " + sum;
+        }
+    </script>
+
+</body>
+</html>

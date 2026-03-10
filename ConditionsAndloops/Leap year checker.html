@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year Checker</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+
+        input,
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        #result {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        .leap {
+            color: #2e7d32;
+        }
+
+       
+        .not-leap {
+            color: #d32f2f;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>Leap Year Checker</h3>
+        <label for="yearInput">Enter a year:</label><br>
+        <input type="number" id="yearInput" placeholder="e.g., 2024">
+        <button onclick="checkLeapYear()">Check Year</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkLeapYear() {
+            let yearElement = document.getElementById("yearInput");
+            let year = parseInt(yearElement.value);
+            let resultDisplay = document.getElementById("result");
+
+            if (isNaN(year) || year < 0) {
+                resultDisplay.innerHTML = "<span class='not-leap'>Please enter a valid year.</span>";
+                return;
+            }
+
+            let isLeapYear = false;
+
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                isLeapYear = true;
+            }
+
+            if (isLeapYear) {
+                resultDisplay.innerHTML = "<span class='leap'>" + year + " is a leap year.</span>";
+            } else {
+                resultDisplay.innerHTML = "<span class='not-leap'>" + year + " is not a leap year.</span>";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

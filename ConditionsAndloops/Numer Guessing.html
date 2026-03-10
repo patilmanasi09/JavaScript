@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 40px;
+    }
+
+    .container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        max-width: 350px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    input, button {
+        margin-top: 10px;
+        padding: 8px;
+    }
+
+    #message {
+        font-weight: bold;
+        margin-top: 15px;
+        color: #0066cc;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Guess the Number!</h3>
+        <p>I am thinking of a number between 1 and 10.</p>
+        
+        <input type="number" id="guessInput">
+        <button onclick="checkGuess()">Guess</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let systemGeneratedNumber = Math.floor(Math.random() * 10) + 1;
+        console.log("Pssst... the answer is " + systemGeneratedNumber); 
+
+        function checkGuess() 
+        {
+            let guessInput = document.getElementById("guessInput");
+            let messageDisplay = document.getElementById("message");
+            let userNumber = parseInt(guessInput.value);
+
+            if (isNaN(userNumber)) {
+                messageDisplay.innerText = "Please enter a valid number.";
+                return; 
+            }
+
+            if (userNumber < systemGeneratedNumber) {
+                messageDisplay.innerText = "Too low! Try again.";
+            } else if (userNumber > systemGeneratedNumber) {
+                messageDisplay.innerText = "Too high! Try again.";
+            } else {
+                messageDisplay.innerText = "Correct! You guessed the number.";
+            }
+        }
+    </script>
+</body>
+</html>

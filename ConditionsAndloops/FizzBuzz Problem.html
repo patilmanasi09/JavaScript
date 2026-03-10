@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        #result {
+            font-family: monospace;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .fizz {
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .buzz {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .fizzbuzz {
+            color: #9c27b0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h3>FizzBuzz (1 to 50)</h3>
+        <button onclick="generateFizzBuzz()">Run FizzBuzz</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function generateFizzBuzz() {
+            let outputArray = [];
+
+            for (let i = 1; i <= 50; i++) {
+
+                if (i % 3 === 0 && i % 5 === 0) {
+                    outputArray.push('<span class="fizzbuzz">FizzBuzz</span>');
+                }
+                else if (i % 3 === 0) {
+                    outputArray.push('<span class="fizz">Fizz</span>');
+                }
+                else if (i % 5 === 0) {
+                    outputArray.push('<span class="buzz">Buzz</span>');
+                }
+                else {
+                    outputArray.push(i);
+                }
+            }
+            let resultDisplay = document.getElementById("result");
+            resultDisplay.innerHTML = outputArray.join(", ");
+        }
+    </script>
+
+</body>
+
+</html>
