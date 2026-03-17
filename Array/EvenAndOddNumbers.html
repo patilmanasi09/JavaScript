@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Array assignments</title>
+</head>
+
+<body>
+   <!-- Assignment 4  -->
+
+    
+    <section>
+      <div class="container w-75 rounded m-5 p-3 bg-secondary-subtle">
+        <h2>Assignment 4 - Filter Even and Odd</h2>
+
+        <div class="mb-3">
+          <input type="text" id="inputNum" placeholder="Enter number" />
+
+          <button class="btn btn-primary" onclick="addNumber()">
+            Add Number
+          </button>
+          <button class="btn btn-primary" onclick="showEven()">
+            Show Even
+          </button>
+          <button class="btn btn-primary" onclick="showOdd()">Show Odd</button>
+          <button class="btn btn-primary" onclick="clearArray()">Clear</button>
+        </div>
+
+        <h5></h5>
+        <div class="container border p-2 mb-3" id="resultEven"></div>
+
+        <h5></h5>
+        <div class="container border p-2" id="resultOdd"></div>
+      </div>
+    </section>
+
+    <script>
+      let EvenOdd = [];
+
+      function addNumber() {
+        let inputEle = document.querySelector("#inputNum");
+        let num = parseInt(inputEle.value);
+
+        EvenOdd.push(num);
+
+        inputEle.value = "";
+        console.log(EvenOdd)
+      }
+
+      function showEven() {
+        let result = "";
+
+        // for (let i = 0; i < EvenOdd.length; i++) {
+        //   if (EvenOdd[i] % 2 == 0) {
+        //     result += EvenOdd[i] + " , ";
+        //   }
+        // }
+
+        result=EvenOdd.filter(number=>(number%2==0))
+
+        document.querySelector("#resultEven").innerHTML = "Even Number : "+result;
+      }
+
+      function showOdd() {
+        let result = "";
+
+        // for (let i = 0; i < EvenOdd.length; i++) {
+        //   if (EvenOdd[i] % 2 != 0) {
+        //     result += EvenOdd[i] + " , ";
+        //   }
+        // }
+
+        result=EvenOdd.filter(number=>(number%2!=0))
+        
+
+        document.querySelector("#resultOdd").innerHTML = "Odd Number : "+result;
+      }
+
+      function clearArray() {
+        
+        document.querySelector("#resultEven").innerHTML = "";
+        document.querySelector("#resultOdd").innerHTML = "";
+      }
+    </script>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

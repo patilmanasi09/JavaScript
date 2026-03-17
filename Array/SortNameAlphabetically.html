@@ -1,0 +1,51 @@
+
+<!-- Assignment 5 -->
+ <section>
+      <div class="container w-75 rounded m-5 p-3 bg-secondary-subtle">
+        <h2>Assignment 5 - Sort names Alphabetically</h2>
+
+        <div class="mb-3">
+          <input type="text" id="inputNames" placeholder="Enter a name" />
+
+          <button class="btn btn-primary" onclick="addName()">
+            Add Name
+          </button>
+          <button class="btn btn-primary" onclick="sortNames()">
+            Sort
+          </button>
+          <button class="btn btn-primary" onclick="resetNames()">Reset</button>
+
+        <div class="container" id="SortArray"></div>
+
+
+        </div>
+
+        
+      </div>
+    </section>
+
+    <script>
+    namesArr = []
+
+    function addName(){
+        let inputNamesEle = document.querySelector('#inputNames')
+        let inNames = inputNamesEle.value
+        namesArr.push(inNames)
+        inputNamesEle.value=""
+        console.log(namesArr)
+    }
+
+    function sortNames(){
+        let sortedNames = namesArr.sort(function(a,b){
+            return a.toLowerCase().localeCompare(b.toLowerCase());
+        })
+
+        document.querySelector('#SortArray').innerHTML = sortedNames;
+    }
+
+    function resetNames(){
+        namesArr=[]
+        document.querySelector('#SortArray').innerHTML=""
+        document.querySelector('#inputNames').value=""
+    }
+</script>
