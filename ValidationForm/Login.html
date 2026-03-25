@@ -13,9 +13,13 @@
 
 
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 col-md-6"></div>
-            <div class="col-12 col-md-6 p-3 bg-light rounded mt-5">
+         <div class="row align-items-center justify-content-center">
+
+        <!-- Image Section -->
+        <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+            <img src="./assets/login.jpg" class="img-fluid rounded w-100 h-100" alt="Login Image"  >
+        </div>
+            <div class="col-12 col-md-6 p-3 bg-light rounded mt-2">
                 <!-- <form> -->
                     <div class="mb-3">
                         <label for="InputEmail1" class="form-label">Email address</label>
@@ -34,27 +38,39 @@
 
 <script>
 
-    e = 'bhim@gmail.com'
-    p = 'kalia'
+    // e = 'bhim@gmail.com'
+    // p = 'kalia123'
+emailElement = document.querySelector('#InputEmail1')
+passwordElement = document.querySelector('#InputPassword1')
 
-    emailElement = document.querySelector('#InputEmail1')
-    passwordElement = document.querySelector('#InputPassword1')
-    function login(){
-        emailValue = emailElement.value
-        passwordValue = passwordElement.value 
+function login(){
+    emailValue = emailElement.value
+    passwordValue = passwordElement.value 
 
-if(emailValue.trim().length > 0){
-        if(emailValue == e){
-            if(passwordValue == p){
-                window.location.href = './home.html'
+    // localStorage user data
+    let storedUser = JSON.parse(localStorage.getItem("user"))
+
+    if(emailValue.trim().length > 0){
+
+        if(storedUser){ 
+            if(emailValue === storedUser.email){
+
+                if(passwordValue === storedUser.password){
+                    window.location.href = './home.html'
+                }else{
+                    alert("Invalid Password")
+                }
+
             }else{
-                alert("Invalid Credential")
+                alert("Email not registered")
             }
+
         }else{
-            alert("Not Registered")
+            alert("No user found, please register first")
         }
+
     }else{
-        alert("Please Enter emali address")
+        alert("Please Enter email address")
     }
 }
 </script>
