@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            padding: 8px;
+            width: 65%;
+        }
+
+        button {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        li {
+            list-style: none;
+            margin: 10px 0;
+            padding: 8px;
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .deleteBtn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+function addTask() {
+
+    let input = document.getElementById("taskInput");
+    let text = input.value.trim();
+
+    if (text === "") return;
+
+    let li = document.createElement("li");
+    li.innerHTML = `
+        <span>${text}</span>
+        <button class="deleteBtn">X</button>
+    `;
+
+    // Mark as completed
+    li.querySelector("span").onclick = function() {
+        li.classList.toggle("completed");
+    };
+
+    // Delete task
+    li.querySelector("button").onclick = function(e) {
+        e.stopPropagation();
+        li.remove();
+    };
+
+    document.getElementById("taskList").appendChild(li);
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
