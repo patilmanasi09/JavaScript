@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter with Buttons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        body{
+            margin-top: 150px;
+            margin-left: 450px;
+        }
+        h1 {
+            font-size: 40px;
+        }
+    </style>
+    </head>
+
+    <body>
+
+      
+        <h2>Counter with Buttons</h2>
+
+        <h1 id="count">0</h1>
+
+        <button class="btn btn-primary p-2" onclick="increase()">+1</button>
+        <button class="btn btn-primary p-2" onclick="decrease()">-1</button>
+        <button class="btn btn-success p-2" onclick="reset()">Reset</button>
+
+
+        <script>
+
+           
+
+            let count = localStorage.getItem("counter");
+
+            if (count === null) {
+                count = 0;
+            } else {
+                count = Number(count);
+            }
+
+            document.getElementById("count").innerText = count;
+
+
+            function increase() {
+                count++;
+                update();
+            }
+
+            function decrease() {
+                count--;
+                update();
+            }
+
+            function reset() {
+                count = 0;
+                update();
+            }
+
+            function update() {
+                document.getElementById("count").innerText = count;
+                localStorage.setItem("counter", count);
+            }
+
+        </script>
+
+
+    </body>
+
+</html>

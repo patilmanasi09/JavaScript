@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Popup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        font-family: Arial;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+        background: white;
+        width: 300px;
+        margin: 150px auto;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    button {
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+    <h2>Modal Popup Example</h2>
+
+    <button class="btn btn-primary" onclick="openModal()">Open Modal</button>
+
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+            <p>This is a modal popup</p>
+
+            <button onclick="closeModal()">Close</button>
+
+        </div>
+    </div>
+
+    <script>
+
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>
